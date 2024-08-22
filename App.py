@@ -24,3 +24,8 @@ if uploaded_file is not None:
     if categorical_columns:
         st.write("### Columnas categóricas identificadas")
         st.write(categorical_columns)
+        
+        # Convertir columnas categóricas a dummies
+        df = pd.get_dummies(df, columns=categorical_columns)
+        st.write("### Datos después de la conversión a dummies")
+        st.write(df.head())
