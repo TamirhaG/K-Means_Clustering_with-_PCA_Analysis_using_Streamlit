@@ -6,5 +6,9 @@ from sklearn.decomposition import PCA
 import plotly.express as px 
 
 
-# Título de la app
+# App title
 st.title("K-Means Clustering con Análisis PCA usando Streamlit")
+
+# Upload Excel file
+uploaded_file = st.file_uploader("Sube un archivo Excel", type=["xlsx"])
+
