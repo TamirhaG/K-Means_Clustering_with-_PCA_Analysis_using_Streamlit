@@ -16,4 +16,11 @@ if uploaded_file is not None:
     df = pd.read_excel(uploaded_file)
 
     st.write("### Vista previa de los datos")
-    st.write(df.head()) 
+    st.write(df.head())
+    
+    # Select categorical columns
+    categorical_columns = df.select_dtypes(include=['object']).columns.tolist()
+    
+    if categorical_columns:
+        st.write("### Columnas categóricas identificadas")
+        st.write(categorical_columns)
