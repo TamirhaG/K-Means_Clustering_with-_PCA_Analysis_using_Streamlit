@@ -85,3 +85,11 @@ if uploaded_file is not None:
 
     # Prepare the CSV file in memory
     csv = df.to_csv(index=False)
+
+    # Create a download button
+    st.download_button(
+        label="Download CSV with Results",
+        data=csv,
+        file_name='cluster_results.csv',
+        mime='text/csv'
+    )
