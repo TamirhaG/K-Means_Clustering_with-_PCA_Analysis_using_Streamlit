@@ -32,3 +32,14 @@ if uploaded_file is not None:
 
     else:
         st.write("No categorical columns found in the data.")
+
+    # Check for missing values
+    if df.isnull().values.any():
+        st.write("### Missing values found")
+        st.write(df.isnull().sum())
+        
+        # Handle missing values
+        df = df.fillna(df.mean())
+
+        st.write("### Data after handling missing values")
+        st.write(df.head())
