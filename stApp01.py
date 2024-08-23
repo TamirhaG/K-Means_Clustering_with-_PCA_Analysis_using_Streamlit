@@ -8,3 +8,6 @@ import plotly.express as px
 
 # App title
 st.title("K-Means Clustering with PCA Analysis using Streamlit")
+
+# Upload Excel file
+uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx"])
