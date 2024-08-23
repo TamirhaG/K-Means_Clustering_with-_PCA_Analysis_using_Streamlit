@@ -67,3 +67,13 @@ if uploaded_file is not None:
     # Select the number of clusters
     st.write("### Select the number of clusters")
     num_clusters = st.slider("Number of clusters", min_value=2, max_value=10, value=3)
+
+    # Apply K-Means
+    kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+    clusters = kmeans.fit_predict(df_scaled)
+
+    # Add cluster to the original DataFrame
+    df['Cluster'] = clusters
+
+    st.write("### Data with assigned clusters")
+    st.write(df.head())
