@@ -51,3 +51,15 @@ if uploaded_file is not None:
     # Data Normalization
     scaler = StandardScaler()
     df_scaled = scaler.fit_transform(df.dropna())
+
+    # Aplicar PCA para entender las componentes principales
+    pca = PCA(n_components=2)
+    principal_components = pca.fit_transform(df_scaled)
+    pca_df = pd.DataFrame(data=principal_components, columns=['PC1', 'PC2'])
+
+    st.write("### Varianza Explicada por cada Componente Principal:")
+    st.write(pca.explained_variance_ratio_)
+
+    st.write("### Cargas (Loadings) de las Variables en las Componentes Principales:")
+    loadings = pd.DataFrame(pca.components_.T, columns=['PC1', 'PC2'], index=df.columns)
+    st.write(loadings)
