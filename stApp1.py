@@ -47,3 +47,7 @@ if uploaded_file is not None:
     # Ensure all columns are numeric
     for col in df.columns:
         df[col] = pd.to_numeric(df[col], errors='coerce')
+
+    # Data normalization
+    scaler = StandardScaler()
+    df_scaled = scaler.fit_transform(df.dropna())
