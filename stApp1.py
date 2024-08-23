@@ -29,3 +29,6 @@ if uploaded_file is not None:
         df = pd.get_dummies(df, columns=categorical_columns)
         st.write("### Data after converting to dummies")
         st.write(df.head())
+
+    else:
+        st.write("No categorical columns found in the data.")
