@@ -17,3 +17,15 @@ if uploaded_file is not None:
 
     st.write("### Data preview")
     st.write(df.head())
+
+    # Select categorical columns
+    categorical_columns = df.select_dtypes(include=['object']).columns.tolist()
+    
+    if categorical_columns:
+        st.write("### Identified categorical columns")
+        st.write(categorical_columns)
+
+        # Convert categorical columns to dummies
+        df = pd.get_dummies(df, columns=categorical_columns)
+        st.write("### Data after converting to dummies")
+        st.write(df.head())
