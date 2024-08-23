@@ -77,3 +77,8 @@ if uploaded_file is not None:
 
     st.write("### Data with assigned clusters")
     st.write(df.head())
+
+    # Visualize clusters using PCA
+    pca_df['Cluster'] = clusters
+    fig = px.scatter(pca_df, x='PC1', y='PC2', color='Cluster', title='Cluster Visualization using PCA')
+    st.plotly_chart(fig)
