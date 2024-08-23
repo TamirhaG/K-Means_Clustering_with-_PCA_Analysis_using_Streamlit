@@ -43,3 +43,7 @@ if uploaded_file is not None:
 
         st.write("### Data after handling missing values")
         st.write(df.head())
+    
+    # Ensure all columns are numeric
+    for col in df.columns:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
