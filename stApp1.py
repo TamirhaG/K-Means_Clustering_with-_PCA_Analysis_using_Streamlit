@@ -82,3 +82,6 @@ if uploaded_file is not None:
     pca_df['Cluster'] = clusters
     fig = px.scatter(pca_df, x='PC1', y='PC2', color='Cluster', title='Cluster Visualization using PCA')
     st.plotly_chart(fig)
+
+    # Prepare the CSV file in memory
+    csv = df.to_csv(index=False)
