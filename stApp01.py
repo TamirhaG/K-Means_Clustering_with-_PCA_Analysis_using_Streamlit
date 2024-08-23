@@ -47,19 +47,4 @@ if uploaded_file is not None:
     # Ensure that all columns are numeric
     for col in df.columns:
         df[col] = pd.to_numeric(df[col], errors='coerce')
-
-    # Data Normalization
-    scaler = StandardScaler()
-    df_scaled = scaler.fit_transform(df.dropna())
-
-    # Apply PCA to understand the main components
-    pca = PCA(n_components=2)
-    principal_components = pca.fit_transform(df_scaled)
-    pca_df = pd.DataFrame(data=principal_components, columns=['PC1', 'PC2'])
-
-    st.write("### Variance Explained by each Principal Component:")
-    st.write(pca.explained_variance_ratio_)
-
-    st.write("### Variable Loadings on Principal Components:")
-    loadings = pd.DataFrame(pca.components_.T, columns=['PC1', 'PC2'], index=df.columns)
-    st.write(loadings)
+    
