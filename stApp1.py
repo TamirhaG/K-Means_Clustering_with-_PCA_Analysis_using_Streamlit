@@ -63,3 +63,7 @@ if uploaded_file is not None:
     st.write("### Loadings of variables on the principal components:")
     loadings = pd.DataFrame(pca.components_.T, columns=['PC1', 'PC2'], index=df.columns)
     st.write(loadings)
+
+    # Select the number of clusters
+    st.write("### Select the number of clusters")
+    num_clusters = st.slider("Number of clusters", min_value=2, max_value=10, value=3)
