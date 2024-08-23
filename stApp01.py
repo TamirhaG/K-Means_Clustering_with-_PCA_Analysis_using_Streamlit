@@ -18,4 +18,9 @@ if uploaded_file is not None:
     st.write("### Data preview")
     st.write(df.head())
 
+    # Select categorical columns
+    categorical_columns = df.select_dtypes(include=['object']).columns.tolist()
     
+    if categorical_columns:
+        st.write("### Categorical columns identified")
+        st.write(categorical_columns)
